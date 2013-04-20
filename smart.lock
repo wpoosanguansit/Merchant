@@ -1,0 +1,31 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master",
+    "commit": "cab491f3650fffc85661bca6b3cecf583410e05d"
+  },
+  "dependencies": {
+    "basePackages": {
+      "jade-handlebars": {},
+      "jquery-cookie": {},
+      "aviary": {}
+    },
+    "packages": {
+      "jade-handlebars": {
+        "git": "https://github.com/SimonDegraeve/meteor-jade-handlebars.git",
+        "tag": "v0.2.7",
+        "commit": "82f6f9ac43a68ffabe1d9b9620be2a4ca6790b56"
+      },
+      "jquery-cookie": {
+        "git": "https://github.com/BenjaminRH/meteor-jquery-cookie.git",
+        "tag": "v0.1.0",
+        "commit": "084bc5bf612639008efe03f3948e816df44c0f36"
+      },
+      "aviary": {
+        "git": "https://github.com/belisarius222/meteor-aviary.git",
+        "tag": "v0.1.0",
+        "commit": "50cf498109ba8938bfdb26278febbebc2b205492"
+      }
+    }
+  }
+}
