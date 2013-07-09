@@ -1,0 +1,89 @@
+<template name="product">
+    <div class="container-fluid product-content"><div class="row-fluid">
+        <div class="span4 pull-right product-details">
+            <h3 class="product-name">{{{product.name}}}</h3>
+            <h4 class="product-price">{{product.price}}</h4>
+            <div class="product-description">
+                {{{product.description}}}
+            </div>
+            <div>
+                {{#with product}}
+                <button id="addToCart" class="btn btn-danger btn-large">Add to Cart</button>
+                {{/with}}
+            </div>
+        </div>
+        <div class="span8 product-image-wrapper">
+            <div class="row-fluid product-images"><div class="span12">
+                <a href="{{mainImageUrl product}}" class="image-container image-large pirobox" data-pirobox="gallery" title="{{product.name}}">
+                    <img src="{{mainImageUrl product}}" alt="{{product.name}}" />
+                    <div class="image-transition"> </div>
+                </a>
+                <p></p>
+                <ul class="thumbnails">
+                    {{#each subImagesUrl product}}
+                    <li class="span2">
+                        {{#if showSubImage}}
+                        <div class="thumbnail position-{{index}}">
+                            <a href='{{url}}' class="image-container" title="{{product.name}}">
+                                <img src="{{url}}" alt="{{product.name}}" />
+                                <div class="image-transition"> </div>
+                            </a>
+                        </div>
+                        {{/if}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div></div><!-- /image -->
+
+            {{#if showVideoSection}}
+            <div class="row-fluid product-video"><div class="span12">
+                <h3 class="middle-bar">
+                    <span>Video</span>
+                </h3>
+                <div class="video-content">
+                    {{> productVideo}}
+                </div>
+            </div></div><!-- /video -->
+            {{/if}}
+
+            {{#if showAudioSection}}
+            <div class="row-fluid product-audio"><div class="span12">
+                <h3 class="middle-bar">
+                    <span>Audio</span>
+                </h3>
+                <div class="audio-content">
+                    {{> productAudio}}
+                </div>
+            </div></div><!-- /audio -->
+            {{/if}}
+            
+            {{#if showLocationSection}}
+            <div class="row-fluid product-location"><div class="span12">
+                <h3 class="middle-bar">Location</h3>
+                <div class="location-content">
+                    {{> productLocation}}
+                </div>
+            </div></div>
+            {{/if}}
+
+        </div>
+        
+    </div></div>
+</template>
+
+<template name="productLocation">
+    <form class="form-horizontal {{#isEditMode}}edit-mode{{/isEditMode}}">
+        <div class="control-group">
+            <div class="control-label">Latitude</div>
+            <div class="controls">
+                <input type="text" data-validate="parsley" data-regexp="\d+.\d+" id="product-lat" value="{{product.location.latitude}}" {{#isEditMode}} {{else}}disabled{{/isEditMode}}>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="control-label">Longitude</div>
+            <div class="controls">
+                <input type="text" data-validate="parsley"  data-regexp="\d+.\d+" id="product-lng" value="{{product.location.longitude}}" {{#isEditMode}} {{else}}disabled{{/isEditMode}}>
+            </div>
+        </div>
+    </form>
+</template>

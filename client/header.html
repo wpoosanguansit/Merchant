@@ -1,0 +1,79 @@
+<template name="header">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner"><div class="container">
+            <a class="brand" href="{{homeUrl}}">{{shopName}}</a>
+            <ul class="nav pull-right">
+                {{#if cartExists}}
+                <li>
+                    <a id="cartBtn" class="cart" href="{{cartUrl}}"><i class="icon-shopping-cart"></i> Cart ({{cartItemCount}})</a>
+                </li>
+                {{/if}}
+                {{> user_info}}
+            </ul>
+        </div></div>
+    </div>
+</template>
+
+<template name="user_info">
+    {{#if currentUser}}
+        {{> user_loggedin}}
+    {{else}}
+        {{> user_loggedout}}
+    {{/if}}
+</template>
+
+
+<template name="user_loggedin">
+    {{#if loggingIn}}
+        <li><a>Logging in...</a></li>
+    {{else}}
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{currentUser.username}}
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li id="editCheckbox">
+                    <label class="checkbox">
+                        <input type="checkbox" {{editModeChecked}} >Edit Mode</input>
+                    </label>
+                </li>
+                <li class="divider"></li>
+                <li class="nav-header">
+                    Account
+                </li>
+                <li>
+                    <a href="#" id="accountSettingBtn">
+                        <i class="icon-fixed-width icon-cogs"></i> Settings
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#" id="logout">
+                        <i class="icon-fixed-width icon-signout"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </li>
+    {{/if}}
+</template>
+
+
+<template name="user_loggedout">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Login
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+            <form id="loginForm" data-validate="parsley">
+              <input id="email" type="text" size="30"  placeholder="email" data-trigger="change" data-required="true" data-type="email"/>
+              <input id="password" type="password" size="30" placeholder="password" data-required="true"/>
+              <label class="checkbox">
+                <input type="checkbox" id="editMode" name="editMode" /> Edit mode
+              </label>
+              <button class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" id="login" >Submit</button>
+            </form>
+        </ul>
+    </li>
+</template>

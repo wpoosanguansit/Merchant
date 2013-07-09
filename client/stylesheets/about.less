@@ -1,0 +1,104 @@
+@form-border-color: #CCC;
+.rounded-corners (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.basic-transition (@prop: all, @duration: 1.0s) {
+    transition: @prop @duration ease;
+    -o-transition: @prop @duration ease;
+    -webkit-transition: @prop @duration ease;
+    -moz-transition: @prop @duration ease;
+}
+
+.shop-about {
+    min-height: 5em;
+    margin: 1em 0;
+}
+
+#input-shop-map {
+    min-height: 3em;
+    overflow: auto;
+}
+
+.editable {
+    .may-be-form {
+        border: 3px dashed @form-border-color;
+
+        &:hover {
+            border: 3px dashed darken(@form-border-color, 50%);
+        }
+    }
+}
+
+@about-link-text-color: #777;
+@about-link-bg-color: #eee;
+@about-link-hover-color: #2980d7;
+
+.about-button {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    margin: 0;
+    width: 1.6em;
+    height: 1.6em;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 2em;
+    color: @about-link-text-color;
+    background-color: @about-link-bg-color;
+    box-shadow: -1px 1px 1px 0px #888;
+    .rounded-corners(0.2em 0 0 0.2em);
+    z-index: 8100;
+    .basic-transition(background-color, 0.4s);
+
+    &:hover, &.active {
+        color: #fff;
+        background-color: @about-link-hover-color;
+    }
+}
+
+.shop-wrapper {
+    background-color: #FFF;
+    padding-top: 20px;
+}
+
+.basic-transition (@prop: all) {
+    transition: @prop 1.0s ease;
+    -o-transition: @prop 1.0s ease;
+    -webkit-transition: @prop 1.0s ease;
+    -moz-transition: @prop 1.0s ease;
+}
+
+.about-page {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    min-height: 100%;
+    //background-image: url(../../images/tex2res4.png);
+    background-color: #131c26;
+    -moz-box-shadow: inset 0 0 10px 10px #222;
+    -webkit-box-shadow: inset 0 0 10px 10px #222;
+    box-shadow: inset 0 0 10px 10px #222;
+
+    .shop-about-wrapper {
+        padding: 1em 0 4em;
+        max-width: 90%;
+    }
+
+    .shop-name, .shop-map-wrapper, .shop-about {
+        background-color: #FFF;
+    }
+    .shop-name {
+        padding-left: 0.3em;
+    }
+    .shop-about {
+        margin-top: 0;
+        padding: 1em;
+    }
+}
+

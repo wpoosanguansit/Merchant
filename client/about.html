@@ -1,0 +1,65 @@
+<template name="aboutInner">
+<div class="{{editableClass}} container shop-about-wrapper"><div class="row-fluid"><div class="span12">
+
+        <div class="row-fluid">
+            {{#if mapCode}}
+            <div class="span6 shop-map-wrapper">
+                {{> map}}
+                {{#if editable}}
+                    <label for="input-shop-map">Map embed code:</label>
+                    <div id="input-shop-map" class="may-be-form">
+                        {{shop.mapCode}}
+                    </div>
+                {{/if}}
+            </div>
+            {{else}}
+            {{#if editable}}
+                <div class="span6 shop-map-wrapper">
+                    <div class="shop-map">{{{mapCode}}}</div>
+                        <label for="input-shop-map">Map embed code:</label>
+                        <div id="input-shop-map" class="may-be-form">
+                            {{shop.mapCode}}
+                        </div>
+                </div>
+            {{/if}}
+            {{/if}}
+            {{#if mapCode}}
+                <div class="span6 shop-about may-be-form">
+            {{else}}
+                {{#if editable}}
+                <div class="span6 shop-about may-be-form">
+                {{else}}
+                <div class="span12 shop-about may-be-form">
+                {{/if}}
+            {{/if}}
+                {{#if editable}}
+                    {{{shop.about}}}
+                {{else}}
+                    {{#if shop.about}}
+                        {{{shop.about}}}
+                    {{else}}
+                        No information yet.
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+</div></div></div>
+</template>
+
+<template name="about">
+<section class="about-page" id="about-page-section">
+    {{> aboutInner}}
+</section>
+</template>
+
+<template name="aboutButton">
+{{#if shop}}
+<a href="/about" class="about-button {{activeClass}}">
+    <i class="iconic-info"></i>
+</a>
+{{/if}}
+</template>
+
+<template name="map">
+    <div class="shop-map">{{{mapCode}}}</div>
+</template>

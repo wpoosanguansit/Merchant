@@ -1,0 +1,80 @@
+.basic-transition (@prop: all, @duration: 1s) {
+    transition: @prop @duration ease;
+    -o-transition: @prop @duration ease;
+    -webkit-transition: @prop @duration ease;
+    -moz-transition: @prop @duration ease;
+}
+
+.page-home {
+    background: none !important;
+    
+    main {
+        background: none !important;
+        width: 80%;
+        margin: 0 auto;
+        
+        #welcome-text {
+            color: #eee;
+            text-shadow: #000 0 1px 2px;
+            
+            h1 {
+                margin-top: 40%;
+            }
+        }
+        
+        #form-signup > .row {
+            background-color: #4b4 !important;
+            margin-top: 5%;
+            padding-left: 20px;
+            
+            h2 {
+                color: #fff;
+            }
+        }
+        
+        form {
+            .control-group {
+                .input-prepend {
+                    width: auto;
+                }
+                .control-label {
+                    .add-on {
+                        margin-top: -5px;
+                    }
+                }
+                .controls {
+                    margin-right: 20px;
+                }
+            }
+            
+            .form-actions {
+                background: none;
+                border: none;
+                padding-left: 0;
+                text-align: center;
+            }
+            
+            #signup {
+                text-shadow: none;
+                box-shadow: none;
+                border: none;
+                background: none;
+                .basic-transition(background-color, .5s);
+                color: #fff;
+                background-color: #246;
+                text-transform: uppercase;
+                padding: 1em 2em;
+                font-size: 1.4em;
+                letter-spacing: 0.1em;
+                
+                &:hover {
+                    background-color: #000;
+                }
+                
+                i {
+                    margin-left: 0.8em;
+                }
+            }
+        }
+    }
+}

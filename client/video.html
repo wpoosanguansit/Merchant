@@ -1,0 +1,25 @@
+<template name="productVideo">
+<div class="product-video">
+    {{#if hasVideo}}
+    <div class="video-embed-display">
+        <figure>
+            <iframe width="560" height="315" src="{{video}}" frameborder="0" allowfullscreen></iframe>
+        </figure>
+    </div>
+    {{/if}}
+    {{> productVideoForm}}
+</div>
+</template>
+
+<template name="productVideoForm">
+{{#if editMode}}
+<div class="well video-form-wrapper">
+    <form id="product-video-form" action="">
+        <fieldset>
+            <legend>Put Youtube URL Here</legend>
+            <textarea rows="1">{{video}}</textarea>
+        </fieldset>
+    </form>
+</div>
+{{/if}}
+</template>

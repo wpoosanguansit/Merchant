@@ -1,0 +1,22 @@
+<template name="productAudio">
+<div class="product-audio">
+    {{#if hasAudio}}
+    <div class="audio-embed-display">
+        <figure>
+            <audio src="{{audio.url}}" preload="none" controls type="{{audio.mimetype}}">
+                Your browser does not support the audio element.
+            </audio>
+        </figure>
+    </div>
+    {{/if}}
+    {{#if editMode}}
+    <div class="thumbnail audio-drop-zone">
+        <div class="audio-placeholder">
+            <span class="icon-file">&nbsp;Drop Files Here.</span>
+        </div>
+        <div id="progress-text">
+        </div>
+    </div?>
+    {{/if}}
+</div>
+</template>

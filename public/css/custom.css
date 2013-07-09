@@ -1,0 +1,97 @@
+.menubar {
+    width: 40px;
+    position: fixed;
+    margin-left: -10px;
+    z-index: 99;
+}
+
+#top_scroller {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    opacity: 0.3;
+    position: fixed;
+    text-align:center;
+    color:white;
+    top: 0;
+    display: none;
+}
+
+#bottom_scroller {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    opacity: 0.3;
+    position: fixed;
+    text-align:center;
+    color:white;
+    bottom: 0;
+    display: none;
+}
+
+.menubar .btn-group-vertical .btn {
+    width: 20px;
+}
+
+/* main image in product detail*/
+.image-large {
+    border: 1px solid #ccc;
+    height: 400px;
+}
+
+/* thumbnail image in shop display */
+.thumbnail > .image-thumb {
+    height: 280px;
+}
+
+@media (min-width: 1200px) {
+    .thumbnail > .image-thumb {
+        height: 320px;
+    }
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+    .thumbnail > .image-thumb {
+        height: 220px;
+    }
+}
+
+.thumbnails > li.ui-state-default, .thumbnails > li.ui-state-disabled {
+    border: none;
+    background: none;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=1)";
+    filter: alpha(opacity=1);
+    opacity: 1;
+}
+
+.product-thumbview {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-thumbview div.category-thumbview {
+    width: 140px;
+    position: absolute;
+    right: 4px;
+    background: #ddd;
+    z-index: 0;
+    overflow: auto;
+}
+
+.category-thumbview fieldset {
+    padding: 5px;
+}
+
+.product-thumbview .image-container {
+    left: 0; /* moz */
+    -webkit-transition: left 0.3s ease-in-out;
+    -moz-transition: left 0.3s ease-in-out;
+    -o-transition: left 0.3s ease-in-out;
+    -ms-transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
+    background-color: #f6f6f6;
+}
+
+.product-thumbview:hover .image-container {
+    left: -140px;
+}

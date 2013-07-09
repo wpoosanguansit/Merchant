@@ -1,0 +1,123 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/custom.css" />
+    <link rel="stylesheet" href="/css/hallo.css" />
+    <link rel="stylesheet" href="/css/imageoverlay.css" />
+    <link rel="stylesheet" href="/css/magnific-popup.css" />
+    <link rel="stylesheet" href="/js/mediaelement/mediaelementplayer.css" />
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="/css/jquery.tagit.css" type="text/css" />
+    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+    <script type="text/javascript" src="/js/rangy-core-1.2.3.js"></script>
+    <script type="text/javascript" src="/js/hallo-min.js"></script>
+    <script type="text/javascript" src="/js/waypoints.min.js"></script>
+    <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+    <script type="text/javascript" src="/js/can.jquery.1.1.6.js"></script>
+    <script type="text/javascript" src="/js/magnific-popup.js"></script>
+    <script src="/js/mediaelement/mediaelement-and-player.js"></script>
+    <script src="/js/jquery.backstretch.js"></script>
+    <script type="text/javascript" src="/js/tag-it.js"></script>
+</head>
+    	
+<body>
+{{> body}}
+</body>
+
+<template name="body">
+
+    <div class="{{pathClass}} main-content-wrapper">
+        <main>
+            {{#if isNotHomepage}}
+                {{> header}}
+                {{> aboutButton}}
+            {{/if}}
+            <div class="main-content">
+                {{renderPage}}
+            </div>
+        </main>
+        {{#if isNotHomepage}}
+        <footer>
+            <div class="container-fluid">
+                <ul class="inline footer-links">
+                    <li><a href="/">Get your own shop!</a></li>
+                </ul>
+                <div class="copyright">copyright &copy; 2013 by Bon</div>
+            </div>
+        </footer>
+        {{/if}}
+    </div>
+    {{#if isNotHomepage}}
+    <aside class="hidden-side">
+        {{> about}}
+    </aside>
+    {{/if}}
+</template>
+
+<template name="home">
+    <div classs="container-fluid">
+        <div class="row-fluid">
+            <div class="span6" id="welcome-text">
+                <h1>Welcome to MyShop</h1>
+                <p>Your personal online shop that match your favor of shopping</p>
+            </div>
+            <div class="span6" id="form-signup">
+                {{> signup}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="signup">
+<div class="row">
+    <div class="span12">
+        <h2>Signup</h2> 
+        <form id="signupForm" data-validate="parsley" class="form-horizontal">
+            <div class="control-group">
+                <label for="uri" class="input-prepend control-label visible-desktop">
+                    <span class="add-on">http://localhost:3000/shop/</span>
+                </label>
+                <label for="uri" class="control-label hidden-desktop">
+                    Shop URL
+                </label>
+                <div class="controls">
+                    <input class="span12" type="text" id="uri" placeholder="your-shop-url" data-trigger="change" data-type="alphanum" data-required="true"/>
+                    <span class="help-block hidden-desktop">http://localhost:3000/shop/your-shop-url</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="name" class="control-label">Name</label>
+                <div class="controls">
+                    <input class="span12" type="text" id="name" placeholder="Your shop name" data-required="true" data-trigger="change"/>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="email" class="control-label">Email</label>
+                <div class="controls">
+                    <input class="span12" type="text" id="email" placeholder="Valid e-mail address" data-trigger="change" data-required="true" data-type="email"/>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="password" class="control-label">Password</label>
+                <div class="controls">
+                    <input class="span12" type="password" id="password" placeholder="Password" data-trigger="change" data-required="true" data-minlength="6"/>
+                </div>
+            </div>    
+            
+            <div class="control-group">
+                <label for="confirmPassword" class="control-label">Confirm Password</label>
+                <div class="controls">
+                    <input class="span12" type="password" id="confirmPassword" placeholder="Password again"  data-trigger="change" data-required="true" data-minlength="6" data-equalto="#password"/>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button class="btn btn-primary" id="signup">Signup <i class="icon-circle-arrow-right"></i></button>
+            </div>
+    
+        </form>
+    </div>
+</div>
+</template>

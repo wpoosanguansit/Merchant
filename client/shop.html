@@ -1,0 +1,88 @@
+<template name="shop">
+<div class="shop-wrapper">
+	{{> category}}
+    <div class="menubar">
+        <ul class="nav nav-list">
+            <li class="nav-header">Item</li>
+        </ul>
+        <div class="btn-group btn-group-vertical">
+            <a id="addProductBtn" class="btn btn-info" href="#"><i class="icon-plus"></i></a>
+        </div>
+    </div>
+    <div class="container shop-wrapper"><div class="row"><div class="span12">
+    <div class="product-grid">
+        <ul id="sortable" class="thumbnails">
+        {{#each products}}
+            {{> productItem}}
+        {{/each}}
+        {{#isEditMode}}
+            <li class="span4 ui-state-disabled">
+                <div class="thumbnail drop-zone">
+                    <div class="image-thumb">
+                        <span class="icon-file">&nbsp;Drop Files Here.</span>
+                    </div>
+                    <div id="progress-text">
+                    </div>
+                </div>
+            </li>
+        {{/isEditMode}}
+        </ul>
+    </div>
+    </div></div></div>
+    <div id="top_scroller"></div>
+    <div id="bottom_scroller"></div>
+</div>
+</template>
+
+<template name="productItem">
+    <li id="product_{{_id}}" class="span4 {{sortState}}">
+    <div class="thumbnail {{#isEditMode}}product-thumbview{{/isEditMode}}">
+        {{> productDeleteButton}}
+        {{> productCategory}}
+        <a href='{{productLink}}' class="image-container image-thumb">
+            <img class="product-image" src="{{mainImageUrl}}" />
+            <div class="product-info image-transition">
+                <div class="caption">
+                    <h5>{{{name}}}</h5>
+                    <h5>{{price}}</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+    </li>
+</template>
+
+<template name="productDeleteButton">
+{{#isEditMode}}
+    <div class="product-delete-button" id="product-delete-button-{{../_id}}">
+        <span class="text">Delete</span> <i class="icon-trash"></i>
+    </div>
+{{/isEditMode}}
+</template>
+
+<template name="category">
+    <div class="container">
+        <ul class="{{#isEditMode}}tag-it{{else}}nav nav-pills{{/isEditMode}}">
+            <li class="{{isAll}} tagit-all"><a href="{{allCategoryLink}}">{{#isEditMode}}0:{{/isEditMode}}ALL</a></li>
+            {{#each categories}}
+                <li class="{{isActive}}"><a href="{{categoryLink}}">{{#isEditMode}}{{_id}}:{{/isEditMode}}{{name}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="productCategory">
+    {{#isEditMode}}
+    <div class="category-thumbview image-thumb">
+        <fieldset>
+            <legend>CATEGORY</legend>
+            {{#each categories}}
+                <label class="checkbox">
+                    <input type="checkbox" id="product_category_{{_id}}" {{isInCategory ..}} />
+                    {{name}}
+                </label>
+            {{/each}}
+        </fieldset>
+    </div>
+    {{/isEditMode}}
+</template>

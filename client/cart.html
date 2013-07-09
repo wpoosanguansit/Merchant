@@ -1,0 +1,45 @@
+<template name="cart">
+    <div id="errorBlock"></div>
+    <div class="container-fluid"><div class="row">
+        <div class="span12">
+            <table class="table table-striped">
+                <tr>
+                    <th>#</th>
+                    <th>Product</th>
+                    <th class="center">Qty</th>
+                    <th width="100px" class="right">Unit Price</th>
+                    <th width="100px" class="right">Total</th>
+                    <th></th>
+                </tr>
+                {{#each items}}
+                    {{> cartItem}}
+                {{/each}}
+                <tr>
+                    <td colspan="3"></td>
+                    <td class="right">Total</td>
+                    <td class="right" id="totalAmount">{{total}}</td>
+                    <td/>
+                </tr>
+            </table>
+            <button id="checkoutBtn" class="btn btn-primary">Checkout</button>
+        </div>
+    </div></div>
+</template>
+
+<template name="cartItem">
+    <tr>
+        <td>{{seq}}</td>
+        <td>{{productName}}</td>
+        <td><input type='number' value='{{qty}}' class="right"/></td>
+        <td class="right">{{unitPrice}}</td>
+        <td class="right">{{total}}</td>
+        <td><a href="#" class="deleteBtn"><i class="icon-trash"></i> Delete</a></td>
+    </tr>
+</template>
+
+<template name="checkoutError">
+    <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Warning!</strong> {{message}}
+    </div>
+</template>

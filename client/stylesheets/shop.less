@@ -1,0 +1,70 @@
+
+.drop-zone {
+    border: 1px dashed #666;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #F6F6F6;
+}
+
+.image-wrap {
+    max-height: 450px;
+    overflow: hidden;
+    max-width: 800px;
+    -webkit-transition: max-width .5s ease-out;  /* Saf3.2+, Chrome */
+    -moz-transition: max-width .5s ease-out;  /* FF4+ */
+    -ms-transition: max-width .5s ease-out;  /* IE10? */
+    -o-transition: max-width .5s ease-out;  /* Opera 10.5+ */
+    transition: max-width .5s ease-out;
+}
+
+.image-wrap img {
+    width: 100%;
+    -webkit-transition: margin-top .5s ease-out;  /* Saf3.2+, Chrome */
+    -moz-transition: margin-top .5s ease-out;  /* FF4+ */
+    -ms-transition: margin-top .5s ease-out;  /* IE10? */
+    -o-transition: margin-top .5s ease-out;  /* Opera 10.5+ */
+    transition: margin-top .5s ease-out;
+}
+
+@media only screen and (min-width: 1160px) {
+    .image-wrap { max-width: 1000px; }
+}
+
+.category-thumbview fieldset > legend {
+    margin-top: 0.8em;
+}
+
+.product-delete-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 8000;
+    background-color: #000;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 0 0 0 3px;
+    opacity: .3;
+    -webkit-transition: opacity .5s ease-out;  /* Saf3.2+, Chrome */
+    -moz-transition: opacity .5s ease-out;  /* FF4+ */
+    -ms-transition: opacity .5s ease-out;  /* IE10? */
+    -o-transition: opacity .5s ease-out;  /* Opera 10.5+ */
+    cursor: pointer;
+    
+    > .text {
+        display: inline-block;
+        vertical-align: middle;
+        overflow: hidden;
+        max-width: 0;
+        -webkit-transition: max-width .5s ease-out;  /* Saf3.2+, Chrome */
+        -moz-transition: max-width .5s ease-out;  /* FF4+ */
+        -ms-transition: max-width .5s ease-out;  /* IE10? */
+        -o-transition: max-width .5s ease-out;  /* Opera 10.5+ */
+    }
+    
+    &:hover {
+        opacity: .8;
+        .text {
+            max-width: 500px;
+        }
+    }
+}

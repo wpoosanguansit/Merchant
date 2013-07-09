@@ -4,8 +4,11 @@
     "branch": "master"
   },
   "packages": {
-    "jade-handlebars": {},
-    "jquery-cookie": {},
-    "aviary": {}
+    "router": {},
+    "bootstrap-jasny": {},
+    "parsleyjs": {},
+    "jquery-ui": {},
+    "font-awesome": {},
+    "stripe": {}
   }
 }

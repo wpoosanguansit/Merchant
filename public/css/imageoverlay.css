@@ -1,0 +1,57 @@
+a.image-container {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.image-container img {
+    max-height: 100%;
+    /*max-width: 100%;*/
+}
+
+.image-transition {
+    transition-duration: 0.5s;          /* W3C */
+    -webkit-transition-duration: 0.5s;  /* Google Chrome/Safari Support */
+    -moz-transition-duration: 0.5s;     /* Mozilla Firefox Support */
+    -o-transition-duration: 0.5s;       /* Opera Support */
+    overflow: hidden;
+    height: 0px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.image-container:hover .image-transition {
+    height: 80px;
+}
+
+.caption {
+    transform-origin: bottom;              /* W3C */
+    transition-duration: 0.5s;          /* W3C */
+
+    -webkit-transform-origin: bottom;      /* Google Chrome/Safari Support */
+    -webkit-transition-duration: 0.5s;  /* Google Chrome/Safari Support */
+
+    -moz-transform-origin: bottom;         /* Mozilla Firefox Support */
+    -moz-transition-duration: 0.5s;     /* Mozilla Firefox Support */
+
+    -o-transform-origin: bottom;           /* Opera Support */
+    -o-transition-duration: 0.5s;       /* Opera Support */
+
+    font-size: 16px;
+    font-family: 'MyriadPro-Light', Arial;
+    font-weight: normal;
+    color: #FFF;
+}
+
+.image-container:hover .caption {
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    height: 80px;
+    transform: rotateX(0deg);           /* W3C */
+    -webkit-transform: rotateX(0deg);   /* Google Chrome/Safari Support */
+    -moz-transform: rotateX(0deg);      /* Mozilla Firefox Support */
+    -o-transform: rotateX(0deg);        /* Opera Support */
+}

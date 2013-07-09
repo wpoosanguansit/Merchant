@@ -1,0 +1,14 @@
+<template name="account">
+    <div class="container-fluid account-setting-content">
+        <div class="span8">
+            <form id="stripeForm" data-validate="parsley">
+                <h3 class="middle-bar">Stripe</h3>
+                <label for="stripeKey">Publishable Key</label>
+                <input class="span6" type="text" id="stripeKey" data-required="false" value="{{shop.stripeKey}}"/>
+                <label for="stripeSecretKey">Secret Key</label>
+                <input class="span6" type="text" id="stripeSecretKey" data-required="false" value="{{shop.stripeSecretKey}}"/>
+            </form>
+            <button class="btn btn-primary" id='submitBtn'>Save</button>
+        </div>
+    </div>
+</template>
