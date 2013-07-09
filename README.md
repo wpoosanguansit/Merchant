@@ -4,7 +4,7 @@
     # BSD license.
     #########################################################################################
 
-    Ecommerce Solution using Meteor.
+    Ecommerce Solution using Meteor. This is just a prototype testing Meteor.
 
     Installation:
 
